@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
+import {StyledCard, StyledTitle, StyledYear} from '../styles/MovieCardStyle'
 
 
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, nominateMovie }) => {
   return (
-    <div>
-      <img src={movie.Poster} alt={movie.Title}/>
-      <p>{movie.Title}</p>
-      <p>{movie.Year}</p>
-    </div>
+      <StyledCard onClick={() => nominateMovie(movie)} url={movie.Poster}>
+        <StyledTitle>{movie.Title}</StyledTitle>
+        <StyledYear>{movie.Year}</StyledYear>
+      </StyledCard>
   );
 }
 export default MovieCard;

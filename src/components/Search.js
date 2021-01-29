@@ -16,22 +16,23 @@ const Search = () => {
   const [input, setInput] = useState('')
   const debouncedSearchTerm = useDebounce(input,500);
   const [results, setResults] = useState([]);
-  const [error, setError] = useState(null);
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
     if(debouncedSearchTerm) {
-      const searchUrl = `${omdb.HOSTNAME}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${debouncedSearchTerm}`;
+      const searchUrl = `${omdb.HOSTNAME}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${debouncedSearchTerm}&r=json`;
       
       axios.get(searchUrl)
       .then((res) => {
         if(res.data.Response === 'True') {
           setResults(res.data.Search);
         } else {
-          setError(res.data.Error);
+          setMessage(res.data.Error);
+          setResults([]);
         }
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+        setMessage('An unexpected error occured.');
         setSearch(false);
       })
     }
@@ -39,6 +40,7 @@ const Search = () => {
 
 
   const handleChangeInput = (value) => {
+    setMessage(null);
     setInput(value)
   }
 
@@ -54,6 +56,7 @@ const Search = () => {
           onChange={(e) => handleChangeInput(e.target.value)}
         />
       </StyledSearchWrap>
+        {message && <p>{message}</p>}
         <ResultsList results={results} />
     </section>   
   )

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 
 export const StyledCard = styled.div`
@@ -18,16 +20,19 @@ export const StyledCard = styled.div`
   }
 `;
 
-export const StyledTitle = styled.p`
+
+export const StyledText = styled.p`
   color: white;
-  font-size: 20px;
+  font-size: ${props => props.title ? '20px' : '15px'};
   text-align: center;
   margin: 0.5rem;
 `;
 
-export const StyledYear = styled.p`
-  color: white;
-  font-size: 15px;
-  text-align: center;
-  margin: 0.5rem;
+export const StyledIcon = styled(FontAwesomeIcon)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  font-size: 25px;
+  color:white;
 `;

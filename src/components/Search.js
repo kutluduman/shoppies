@@ -1,13 +1,13 @@
-import React, {useState, useEffect } from 'react'
-import axios from 'axios'
+import React, {useState, useEffect } from 'react';
+import axios from 'axios';
 import {omdb} from '../library';
 import useDebounce from '../hooks/useDebounce';
 import {
   StyledSearchWrap,
   StyledIcon,
   StyledSearch,
-} from '../styles/SearchStyle'
-import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
+} from '../styles/SearchStyle';
+import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 
 const Search = ({addResults}) => {
@@ -60,4 +60,4 @@ const Search = ({addResults}) => {
   )
 }
 
-export default Search
+export default Search;

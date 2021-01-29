@@ -1,11 +1,17 @@
-import {React} from 'react';
+import { React } from 'react'
+
+import {AppContainer, Main} from './styles/HomeStyle'
+
+import Search from './components/Search'
 
 function App() {
   return (
-    <div>
-      <h1>The Shoppies</h1>
-    </div>
+    <AppContainer>
+        <Main>
+          <Search/>
+        </Main>
+    </AppContainer>
   )
 }
 
-export default App
+export default App;

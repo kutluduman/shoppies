@@ -8,14 +8,13 @@ import {
   StyledSearch,
 } from '../styles/SearchStyle'
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import ResultsList from './ResultsList';
 
-const Search = () => {
+
+const Search = ({addResults}) => {
   // eslint-disable-next-line no-unused-vars
   const [search, setSearch] = useState(false)
   const [input, setInput] = useState('')
   const debouncedSearchTerm = useDebounce(input,500);
-  const [results, setResults] = useState([]);
   const [message, setMessage] = useState(null);
 
   useEffect(() => {
@@ -25,10 +24,10 @@ const Search = () => {
       axios.get(searchUrl)
       .then((res) => {
         if(res.data.Response === 'True') {
-          setResults(res.data.Search);
+          addResults(res.data.Search);
         } else {
           setMessage(res.data.Error);
-          setResults([]);
+          addResults([]);
         }
       })
       .catch(() => {
@@ -36,7 +35,7 @@ const Search = () => {
         setSearch(false);
       })
     }
-  },[debouncedSearchTerm]);
+  },[debouncedSearchTerm,addResults]);
 
 
   const handleChangeInput = (value) => {
@@ -57,7 +56,6 @@ const Search = () => {
         />
       </StyledSearchWrap>
         {message && <p>{message}</p>}
-        <ResultsList results={results} />
     </section>   
   )
 }

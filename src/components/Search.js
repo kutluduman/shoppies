@@ -8,6 +8,7 @@ import {
   StyledSearch,
 } from '../styles/SearchStyle'
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import ResultsList from './ResultsList';
 
 const Search = () => {
   // eslint-disable-next-line no-unused-vars
@@ -53,6 +54,7 @@ const Search = () => {
           onChange={(e) => handleChangeInput(e.target.value)}
         />
       </StyledSearchWrap>
+        <ResultsList results={results} />
     </section>   
   )
 }

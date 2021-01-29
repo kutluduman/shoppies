@@ -1,7 +1,5 @@
 import { React } from 'react'
-
 import {AppContainer, Main} from './styles/HomeStyle'
-
 import Search from './components/Search'
 
 function App() {

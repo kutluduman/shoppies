@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { maxAppWidth, MediumGray } from '../library'
 
 

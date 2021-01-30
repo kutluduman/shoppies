@@ -1,34 +1,43 @@
-import { React, useState } from 'react'
-import {AppContainer, Main} from './styles/HomeStyle'
+import { React, useState, useContext } from 'react'
+import { AppContainer, Main } from './styles/HomeStyle'
 import Search from './components/Search'
 import NominatedList from './components/NominatedList'
 import ResultsList from './components/ResultsList'
 
 function App() {
-  const [results, setResults] = useState([]);
-  const [nominations, setNominations] = useState([]);
+  const [results, setResults] = useState([])
+  const [nominations, setNominations] = useState([])
 
-  const addResults = (results) => {
-    setResults(results)
-  }
+  const addResults = useCallback((results) => setResults(results), [])
 
-  const nominateMovie = (movie) => {
-    setNominations([...nominations, movie])
-  }
-
-  const unNominateMovie = (id) => {
-    setNominations(nominations.filter((movie) => movie.id !== id))
+  const handleNomination = (movie, nominated) => {
+    if (nominated) {
+      setNominations(
+        nominations.filter((nomination) => nomination.imdbID !== movie.imdbID)
+      )
+    } else if (nominations.length < 5) {
+      setNominations([...nominations, movie])
+    }
   }
 
   return (
     <AppContainer>
-        <Main>
-          <Search addResults={addResults}/>
-          <ResultsList nominateMovie={nominateMovie} results={results}/>
-          <NominatedList nominations={nominations} unNominateMovie={unNominateMovie}/>
-        </Main>
+      <Main>
+        <Search addResults={addResults} />
+        <ResultsList
+          handleNomination={handleNomination}
+          results={results}
+          nominatedIds={
+            new Set(nominations.map((nomination) => nomination.imdbID))
+          }
+        />
+        <NominatedList
+          nominations={nominations}
+          handleNomination={handleNomination}
+        />
+      </Main>
     </AppContainer>
   )
 }
 
-export default App;
+export default App

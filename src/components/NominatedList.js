@@ -5,8 +5,9 @@ import {
   StyledEmptySlot,
 } from '../styles/NominatedListStyle'
 import MovieCard from './MovieCard'
+import { nominationSlots } from '../library'
 
-const NominatedList = ({ nominations, handleNomination, nominationSlots }) => {
+const NominatedList = ({ nominations, handleNomination }) => {
   return (
     <section>
       <StyledH2>Nominated Movies</StyledH2>

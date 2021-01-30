@@ -9,7 +9,6 @@ function App() {
   const [results, setResults] = useState([])
   const [nominations, setNominations] = useState([])
   const [showNotification, setShowNotification] = useState(false)
-  const [nominationSlots, setNominationSlots] = useState(5)
 
   const addResults = useCallback((results) => setResults(results), [])
 
@@ -46,7 +45,6 @@ function App() {
         <NominatedList
           nominations={nominations}
           handleNomination={handleNomination}
-          nominationSlots={nominationSlots}
         />
       </Main>
     </AppContainer>

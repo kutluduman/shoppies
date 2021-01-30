@@ -1,5 +1,5 @@
 import { React, useState, useContext } from 'react'
-import { AppContainer, Main } from './styles/HomeStyle'
+import { AppContainer, Main, StyledH1 } from './styles/HomeStyle'
 import Search from './components/Search'
 import NominatedList from './components/NominatedList'
 import ResultsList from './components/ResultsList'
@@ -23,6 +23,7 @@ function App() {
   return (
     <AppContainer>
       <Main>
+      <StyledH1>The Shoppies</StyledH1>
         <Search addResults={addResults} />
         <ResultsList
           handleNomination={handleNomination}

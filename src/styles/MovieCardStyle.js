@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export const StyledCard = styled.div`
-  height: 223px;
-  width: 150px;
+  height: 150px;
+  width: 100px;
   background: ${props => `linear-gradient(to bottom, transparent 0%, black 100%), url(${props.url})`};
   background-size: cover;
   display: flex;
@@ -24,7 +24,7 @@ export const StyledCard = styled.div`
 
 export const StyledText = styled.p`
   color: white;
-  font-size: ${props => props.title ? '20px' : '15px'};
+  font-size: ${props => props.title ? '18px' : '13px'};
   text-align: center;
   margin: 0.5rem;
 `;

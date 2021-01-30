@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyledDiv } from '../styles/NominatedListStyle'
+import { StyledDiv, StyledH2 } from '../styles/NominatedListStyle'
 import MovieCard from './MovieCard'
 
 const NominatedList = ({ nominations, handleNomination }) => {
   return (
     <section>
+      <StyledH2>Nominated Movies</StyledH2>
       <h2>Nominated Movies</h2>
       <StyledDiv>
         {nominations.map((movie) => (

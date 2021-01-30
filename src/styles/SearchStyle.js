@@ -23,6 +23,6 @@ export const StyledSearch = styled.input`
   color: ${MediumGray};
   width: 100%;
   border: none;
-  padding: 1rem;
+  padding: 0.8rem;
   padding-left: 3rem;
 `

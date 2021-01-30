@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { gutter, cardWidth } from '../library'
+import { gutter, cardWidth, MediumBlue } from '../library'
 
 export const StyledDiv = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const StyledEmptySlot = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
-  background-color: #1c3f52;
+  background-color: ${MediumBlue};
   margin: 5px ${gutter}px;
   border-radius: 2px;
   font-size: 40px;

@@ -1,14 +1,12 @@
 import styled from 'styled-components'
-import { maxAppWidth, gutter } from '../library'
+import { maxAppWidth, gutter, Amber } from '../library'
 
 export const AppContainer = styled.div`
-  border: 3px solid #b6a644;
+  border: 3px solid ${Amber};
   margin: 20px 40px;
   height: calc(100vh - 46px);
   display: flex;
-  /* flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start; */
+
   @media (min-width: 768px) {
     /* justify-content: center; */
   }
@@ -18,7 +16,7 @@ export const AppContainer = styled.div`
   &:after {
     content: '';
     margin: 20px;
-    border: 3px solid #b6a644;
+    border: 3px solid ${Amber};
     display: block;
     position: absolute;
     top: 20px;

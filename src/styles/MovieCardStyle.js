@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {cardWidth, gutter} from '../library';
 
 
@@ -22,14 +21,16 @@ export const StyledCard = styled.div`
 `;
 
 
-export const StyledText = styled.p`
+export const StyledTitle = styled.p`
   color: white;
-  font-size: ${props => props.title ? '18px' : '13px'};
+  font-size: 13px;
   text-align: center;
   margin: 0.5rem;
 `;
 
-export const StyledIcon = styled(FontAwesomeIcon)`
+export const StyledButton = styled.button`
+  background-color: transparent;
+  border: none;
   position: absolute;
   cursor: pointer;
   top: -15px;

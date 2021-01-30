@@ -1,12 +1,15 @@
-import { React, useState, useContext } from 'react'
+import { React, useState, useContext, useEffect } from 'react'
 import { AppContainer, Main, StyledH1 } from './styles/HomeStyle'
 import Search from './components/Search'
 import NominatedList from './components/NominatedList'
 import ResultsList from './components/ResultsList'
+import Notification from './components/Notification'
 
 function App() {
   const [results, setResults] = useState([])
   const [nominations, setNominations] = useState([])
+  const [showNotification, setShowNotification] = useState(false)
+  const [nominationSlots, setNominationSlots] = useState(5)
 
   const addResults = useCallback((results) => setResults(results), [])
 
@@ -20,10 +23,18 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    if (nominations.length === 5) {
+      setShowNotification(true)
+      setTimeout(() => setShowNotification(false), 3000)
+    }
+  }, [nominations])
+
   return (
     <AppContainer>
       <Main>
-      <StyledH1>The Shoppies</StyledH1>
+        {showNotification ? <Notification /> : null}
+        <StyledH1>The Shoppies</StyledH1>
         <Search addResults={addResults} />
         <ResultsList
           handleNomination={handleNomination}
@@ -35,6 +46,7 @@ function App() {
         <NominatedList
           nominations={nominations}
           handleNomination={handleNomination}
+          nominationSlots={nominationSlots}
         />
       </Main>
     </AppContainer>

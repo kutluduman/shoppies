@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { maxAppWidth, MediumGray } from '../library'
+import { maxAppWidth, gutter } from '../library'
 
 export const AppContainer = styled.div`
   border: 3px solid #b6a644;
@@ -40,4 +40,5 @@ export const Main = styled.div`
 export const StyledH1 = styled.h1`
   font-family: 'Poiret One', cursive;
   color: white;
+  margin: 20px ${gutter}px;
 `

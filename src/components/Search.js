@@ -9,12 +9,11 @@ import {
 } from '../styles/SearchStyle'
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
-const Search = ({ addResults }) => {
+const Search = ({ handleResults, handleMessage }) => {
   // eslint-disable-next-line no-unused-vars
   const [search, setSearch] = useState(false)
   const [input, setInput] = useState('')
   const debouncedSearchTerm = useDebounce(input, 500)
-  const [message, setMessage] = useState(null)
 
   useEffect(() => {
     if (debouncedSearchTerm) {
@@ -25,21 +24,21 @@ const Search = ({ addResults }) => {
         .get(searchUrl)
         .then((res) => {
           if (res.data.Response === 'True') {
-            addResults(res.data.Search)
+            handleResults(res.data.Search)
           } else {
-            setMessage(res.data.Error)
-            addResults([])
+            handleMessage(res.data.Error)
+            handleResults([])
           }
         })
         .catch(() => {
-          setMessage('An unexpected error occured.')
+          handleMessage('An unexpected error occured.')
           setSearch(false)
         })
     }
-  }, [debouncedSearchTerm, addResults])
+  }, [debouncedSearchTerm, handleResults, handleMessage])
 
   const handleChangeInput = (value) => {
-    setMessage(null)
+    handleMessage(null)
     setInput(value)
   }
 
@@ -55,7 +54,6 @@ const Search = ({ addResults }) => {
           onChange={(e) => handleChangeInput(e.target.value)}
         />
       </StyledSearchWrap>
-      {message && <p>{message}</p>}
     </section>
   )
 }

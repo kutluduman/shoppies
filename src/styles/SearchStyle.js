@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { MediumGray } from '../library'
+import { MediumGray, gutter } from '../library'
 
 export const StyledSearchWrap = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  margin: 0 ${gutter}px;
   font-size: 1.5rem;
   border: 1px solid ${MediumGray};
   background-color: white;

@@ -1,4 +1,4 @@
-import { React, useState, useContext, useEffect } from 'react'
+import { React, useState, useCallback, useEffect } from 'react'
 import { AppContainer, Main, StyledH1 } from './styles/HomeStyle'
 import Search from './components/Search'
 import NominatedList from './components/NominatedList'
@@ -9,8 +9,11 @@ function App() {
   const [results, setResults] = useState([])
   const [nominations, setNominations] = useState([])
   const [showNotification, setShowNotification] = useState(false)
+  const [message, setMessage] = useState(null);
 
-  const addResults = useCallback((results) => setResults(results), [])
+  const handleResults = useCallback((results) => setResults(results), []);
+
+  const handleMessage = useCallback((message) => setMessage(message), [])
 
   const handleNomination = (movie, nominated) => {
     if (nominated) {
@@ -34,14 +37,8 @@ function App() {
       <Main>
         {showNotification ? <Notification /> : null}
         <StyledH1>The Shoppies</StyledH1>
-        <Search addResults={addResults} />
-        <ResultsList
-          handleNomination={handleNomination}
-          results={results}
-          nominatedIds={
-            new Set(nominations.map((nomination) => nomination.imdbID))
-          }
-        />
+        <Search handleResults={handleResults} handleMessage={handleMessage} />
+        <ResultsList handleNomination={handleNomination} results={results} nominatedIds={new Set(nominations.map((nomination) => nomination.imdbID))} message={message}/>
         <NominatedList
           nominations={nominations}
           handleNomination={handleNomination}

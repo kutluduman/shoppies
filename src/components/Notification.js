@@ -1,14 +1,19 @@
 import React from 'react'
-import { StyledDiv } from '../styles/NotificationStyle'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  StyledContent,
+  StyledModal,
+  StyledIcon,
+} from '../styles/NotificationStyle'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-const Notification = () => {
+const Notification = ({ closeModal }) => {
   return (
-    <StyledDiv>
-      <FontAwesomeIcon icon={faTimes} />
-      Thank you for your nominations!
-    </StyledDiv>
+    <StyledModal>
+      <StyledContent>
+        <StyledIcon icon={faTimes} onClick={() => closeModal()} />
+        Thank you for your nominations!
+      </StyledContent>
+    </StyledModal>
   )
 }
 

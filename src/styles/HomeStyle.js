@@ -2,28 +2,30 @@ import styled from 'styled-components'
 import { maxAppWidth, gutter, Amber } from '../library'
 
 export const AppContainer = styled.div`
-  border: 3px solid ${Amber};
-  margin: 20px 40px;
-  height: calc(100vh - 46px);
   display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 20px;
+  @media (max-width: 750px) {
+    padding: 10px;
+  }
+`
 
-  @media (min-width: 768px) {
-    /* justify-content: center; */
+export const BorderContainer = styled.div`
+  flex-grow: 1;
+  border: 3px solid ${Amber};
+  margin: 0 20px;
+  display: flex;
+  @media (max-width: 750px) {
+    text-align: center;
   }
-  @media (min-width: 768px) and (max-height: 520px) {
-    /* justify-content: flex-start; */
-  }
-  &:after {
-    content: '';
-    margin: 20px;
-    border: 3px solid ${Amber};
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: 0;
-    right: 0;
-    bottom: 20px;
-  }
+`
+
+export const InnerBorderContainer = styled.div`
+  border: 3px solid ${Amber};
+  width: calc(100% + 46px);
+  margin: 17px -23px;
+  padding: 0 20px;
 `
 
 export const Main = styled.div`

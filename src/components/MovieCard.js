@@ -1,16 +1,19 @@
 import React from 'react'
 import {
-  StyledCard,
+  CardWrapper,
   StyledYear,
   StyledTitle,
   StyledButton,
+  StyledImage,
+  StyledText,
 } from '../styles/MovieCardStyle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAward } from '@fortawesome/free-solid-svg-icons'
 
 const MovieCard = ({ movie, handleNomination, nominated, disabled }) => {
   return (
-    <StyledCard url={movie.Poster} nominated={nominated} disabled={disabled}>
+    <CardWrapper disabled={disabled}>
+      <StyledImage src={movie.Poster} />
       <StyledButton
         type="button"
         onClick={() => handleNomination(movie, nominated)}
@@ -18,9 +21,13 @@ const MovieCard = ({ movie, handleNomination, nominated, disabled }) => {
       >
         <FontAwesomeIcon icon={faAward} />
       </StyledButton>
+      <StyledText>
+        <StyledTitle>{movie.Title}</StyledTitle>
+        <StyledYear>{movie.Year}</StyledYear>
+      </StyledText>
       <StyledTitle>{movie.Title}</StyledTitle>
       <StyledYear>{movie.Year}</StyledYear>
-    </StyledCard>
+    </CardWrapper>
   )
 }
 export default MovieCard

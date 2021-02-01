@@ -1,5 +1,11 @@
 import { React, useState, useCallback, useEffect } from 'react'
-import { AppContainer, Main, StyledH1 } from './styles/HomeStyle'
+import {
+  AppContainer,
+  Main,
+  StyledH1,
+  BorderContainer,
+  InnerBorderContainer,
+} from './styles/HomeStyle'
 import Search from './components/Search'
 import NominatedList from './components/NominatedList'
 import ResultsList from './components/ResultsList'
@@ -9,9 +15,9 @@ function App() {
   const [results, setResults] = useState([])
   const [nominations, setNominations] = useState([])
   const [showNotification, setShowNotification] = useState(false)
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState(null)
 
-  const handleResults = useCallback((results) => setResults(results), []);
+  const handleResults = useCallback((results) => setResults(results), [])
 
   const handleMessage = useCallback((message) => setMessage(message), [])
 
@@ -34,16 +40,30 @@ function App() {
 
   return (
     <AppContainer>
-      <Main>
-        {showNotification ? <Notification /> : null}
-        <StyledH1>The Shoppies</StyledH1>
-        <Search handleResults={handleResults} handleMessage={handleMessage} />
-        <ResultsList handleNomination={handleNomination} results={results} nominatedIds={new Set(nominations.map((nomination) => nomination.imdbID))} message={message}/>
-        <NominatedList
-          nominations={nominations}
-          handleNomination={handleNomination}
-        />
-      </Main>
+      <BorderContainer>
+        <InnerBorderContainer>
+          <Main>
+            {showNotification ? <Notification /> : null}
+            <StyledH1>The Shoppies</StyledH1>
+            <Search
+              handleResults={handleResults}
+              handleMessage={handleMessage}
+            />
+            <ResultsList
+              handleNomination={handleNomination}
+              results={results}
+              nominatedIds={
+                new Set(nominations.map((nomination) => nomination.imdbID))
+              }
+              message={message}
+            />
+            <NominatedList
+              nominations={nominations}
+              handleNomination={handleNomination}
+            />
+          </Main>
+        </InnerBorderContainer>
+      </BorderContainer>
     </AppContainer>
   )
 }

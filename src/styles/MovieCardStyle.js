@@ -1,23 +1,40 @@
 import styled from 'styled-components'
-import { cardWidth, gutter } from '../library'
+// import { cardWidth, gutter } from '../library'
 
-export const StyledCard = styled.div`
+export const CardWrapper = styled.div`
+  position: relative;
+  float: left;
+  width: 100px;
   height: 150px;
-  width: ${cardWidth}px;
-  background: ${(props) =>
-    `linear-gradient(to bottom, transparent 0%, black 100%), url(${props.url})`};
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  margin: 5px;
   border-radius: 2px;
-  margin: 5px ${gutter}px;
-  transition: box-shadow 0.3s, border-color 0.3s, -webkit-box-shadow 0.3s;
-  :hover {
-    box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
-      0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
-  }
+  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
+    0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
   opacity: ${(props) => (props.disabled ? '0.5' : '1')};
+  @media (max-width: 750px) {
+    width: 140px;
+    height: 210px;
+    margin: 5px 0;
+  }
+  :before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    z-index: 1;
+  }
+`
+
+export const StyledImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
 `
 
 export const StyledTitle = styled.p`
@@ -39,9 +56,18 @@ export const StyledButton = styled.button`
   border: none;
   position: absolute;
   cursor: pointer;
-  top: -15px;
+  top: -10px;
   right: -15px;
-  margin: 10px;
   font-size: 25px;
   color: ${(props) => (props.nominated ? '#ffd43b' : 'white')};
+  padding: 0;
+  @media (max-width: 750px) {
+    right: -35px;
+  }
+`
+export const StyledText = styled.div`
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  z-index: 2;
 `

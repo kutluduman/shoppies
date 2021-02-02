@@ -1,19 +1,21 @@
 import styled from 'styled-components';
+import {gutter} from '../library';
 
 export const StyledSection = styled.section`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 16px 16px 0 16px;
+  margin-top: ${gutter}px;
   min-height: 320px;
   max-height: 600px;
-  justify-content: center;
   position: relative;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-grow: 1;
   @media (max-width: 750px) {
+    justify-content: space-between;
     height: ${(props) => (props.showAll ? '100%' : '320px')};
     overflow: hidden;
     max-height: 100%;
+    margin: ${gutter}px ${gutter}px 0 ${gutter}px;
   }
 `;
 

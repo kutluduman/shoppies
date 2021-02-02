@@ -5,10 +5,10 @@ export const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 16px 16px 0 16px;
+  margin: ${gutter}px 0;
   padding-bottom: 20px;
   @media (max-width: 750px) {
-    padding: 0 calc((100% - 300px) / 2 - 20px) 20px;
+    margin: 0 calc((100% - 300px) / 2);
     div:first-child {
       width: 300px;
       height: 450px;
@@ -34,8 +34,13 @@ export const StyledEmptySlot = styled.div`
   justify-content: center;
   color: white;
   background-color: ${MediumBlue};
-  margin: 5px;
+  margin: 5px ${gutter}px;
   border-radius: 2px;
   font-size: 40px;
   font-family: 'Poiret One', cursive;
+  @media (max-width: 750px) {
+    width: 140px;
+    height: 210px;
+    margin: 5px 0;
+  }
 `;

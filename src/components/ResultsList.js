@@ -1,5 +1,4 @@
 import React from 'react';
-import MovieCard from './MovieCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -7,6 +6,7 @@ import {
   StyledEmptyState,
   StyledMessage,
 } from '../styles/ResultsListStyle';
+import MovieCard from './MovieCard';
 
 
 const ResultsList = ({ results, handleNomination, nominatedIds, message }) => {

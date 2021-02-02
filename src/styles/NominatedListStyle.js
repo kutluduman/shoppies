@@ -23,7 +23,6 @@ export const StyledH2 = styled.h2`
   @media (max-width: 750px) {
     width: 140px;
     height: 210px;
-    /* margin: 5px 0; */
   }
 `;
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const CardWrapper = styled.div`
   position: relative;
-  float: left;
   width: 100px;
   height: 150px;
   margin: 5px;
@@ -57,9 +56,9 @@ export const StyledButton = styled.button`
   position: absolute;
   cursor: pointer;
   top: -10px;
-  right: -15px;
+  right: -10px;
   font-size: 25px;
-  color: ${(props) => (props.nominated ? '#ffd43b' : 'white')};
+  color: ${props => props.isNominated ? '#ffd43b' : 'white'};
   padding: 0;
   @media (max-width: 750px) {
     right: -35px;

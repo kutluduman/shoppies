@@ -13,7 +13,7 @@ import {
 const MovieCard = ({ movie, handleNomination, isNominated, disabled }) => {
   return (
     <CardWrapper disabled={disabled}>
-      <StyledImage src={movie.Poster} />
+      {movie.Poster !== 'N/A' ? <StyledImage src={movie.Poster} /> : null}
       <StyledButton type="button" disabled={disabled} isNominated={isNominated} onClick={() => handleNomination(movie, isNominated)}>
         <FontAwesomeIcon icon={faAward} />
       </StyledButton>

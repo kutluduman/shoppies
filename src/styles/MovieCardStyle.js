@@ -55,15 +55,13 @@ export const StyledButton = styled.button`
   background-color: transparent;
   border: none;
   position: absolute;
-  cursor: pointer;
-  top: -10px;
-  right: -10px;
-  font-size: 25px;
+  cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
+  top: 2%;
+  right: 2%;
+  font-size: 30px;
   color: ${(props) => (props.isNominated ? '#ffd43b' : 'white')};
   padding: 0;
-  @media (max-width: 750px) {
-    right: -35px;
-  }
+  filter: drop-shadow(16px 16px 10px black);
 `;
 export const StyledText = styled.div`
   width: 100%;

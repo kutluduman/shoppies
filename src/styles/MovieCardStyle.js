@@ -9,7 +9,7 @@ export const CardWrapper = styled.div`
   border-radius: 2px;
   box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
     0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
-  opacity: ${(props) => (props.disabled ? '0.5' : '1')};
+    opacity: ${(props) => (props.disabled ? '0.5' : '1')};
   @media (max-width: 750px) {
     width: 140px;
     height: 210px;
@@ -32,8 +32,9 @@ export const CardWrapper = styled.div`
 `;
 
 export const StyledImage = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const StyledTitle = styled.p`
@@ -58,7 +59,7 @@ export const StyledButton = styled.button`
   top: -10px;
   right: -10px;
   font-size: 25px;
-  color: ${props => props.isNominated ? '#ffd43b' : 'white'};
+  color: ${(props) => (props.isNominated ? '#ffd43b' : 'white')};
   padding: 0;
   @media (max-width: 750px) {
     right: -35px;

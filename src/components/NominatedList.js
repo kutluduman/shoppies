@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import {
   StyledDiv,
   StyledH2,
   StyledEmptySlot,
-} from '../styles/NominatedListStyle'
-import MovieCard from './MovieCard'
-import { nominationSlots } from '../library'
+} from '../styles/NominatedListStyle';
+import MovieCard from './MovieCard';
+import { nominationSlots } from '../library';
 
 const NominatedList = ({ nominations, handleNomination }) => {
   return (
@@ -28,7 +28,7 @@ const NominatedList = ({ nominations, handleNomination }) => {
         ))}
       </StyledDiv>
     </section>
-  )
-}
+  );
+};
 
-export default NominatedList
+export default NominatedList;

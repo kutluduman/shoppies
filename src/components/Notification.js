@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import {
   StyledContent,
   StyledModal,
   StyledIcon,
-} from '../styles/NotificationStyle'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+} from '../styles/NotificationStyle';
+
 
 const Notification = ({ closeModal }) => {
   return (
@@ -14,7 +15,7 @@ const Notification = ({ closeModal }) => {
         Thank you for your nominations!
       </StyledContent>
     </StyledModal>
-  )
-}
+  );
+};
 
-export default Notification
+export default Notification;

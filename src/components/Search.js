@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { omdb } from '../library'
-import useDebounce from '../hooks/useDebounce'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { omdb } from '../library';
+import useDebounce from '../hooks/useDebounce';
 import {
   StyledSearchWrap,
   StyledIcon,
   StyledSearch,
-} from '../styles/SearchStyle'
-import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
+} from '../styles/SearchStyle';
+
 
 const Search = ({ handleResults, handleMessage }) => {
-  // eslint-disable-next-line no-unused-vars
-  const [search, setSearch] = useState(false)
-  const [input, setInput] = useState('')
-  const debouncedSearchTerm = useDebounce(input, 500)
+  const [search, setSearch] = useState(false);
+  const [input, setInput] = useState('');
+  const debouncedSearchTerm = useDebounce(input, 500);
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      const searchUrl = `${omdb.HOSTNAME}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${debouncedSearchTerm}&r=json`
+      const searchUrl = `${omdb.HOSTNAME}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${debouncedSearchTerm}&r=json`;
 
-      setSearch(true)
+      setSearch(true);
       axios
         .get(searchUrl)
         .then((res) => {
           if (res.data.Response === 'True') {
-            handleResults(res.data.Search)
+            handleResults(res.data.Search);
           } else {
-            handleMessage(res.data.Error)
-            handleResults([])
+            handleMessage(res.data.Error);
+            handleResults([]);
           }
         })
         .catch(() => {
-          handleMessage('An unexpected error occured.')
-          setSearch(false)
-        })
+          handleMessage('An unexpected error occured.');
+          setSearch(false);
+        });
     }
-  }, [debouncedSearchTerm, handleResults, handleMessage])
+  }, [debouncedSearchTerm, handleResults, handleMessage]);
 
   const handleChangeInput = (value) => {
-    handleMessage(null)
-    setInput(value)
-  }
+    handleMessage(null);
+    setInput(value);
+  };
 
   return (
     <section>
@@ -55,7 +55,7 @@ const Search = ({ handleResults, handleMessage }) => {
         />
       </StyledSearchWrap>
     </section>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { maxAppWidth, gutter, Amber } from '../library'
+import styled from 'styled-components';
+import { maxAppWidth, gutter, Amber } from '../library';
 
 export const AppContainer = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const AppContainer = styled.div`
   @media (max-width: 750px) {
     padding: 10px;
   }
-`
+`;
 
 export const BorderContainer = styled.div`
   flex-grow: 1;
@@ -19,14 +19,14 @@ export const BorderContainer = styled.div`
   @media (max-width: 750px) {
     text-align: center;
   }
-`
+`;
 
 export const InnerBorderContainer = styled.div`
   border: 3px solid ${Amber};
   width: calc(100% + 46px);
   margin: 17px -23px;
   padding: 0 20px;
-`
+`;
 
 export const Main = styled.div`
   max-width: ${maxAppWidth}px;
@@ -35,10 +35,10 @@ export const Main = styled.div`
   width: 100%;
   z-index: 2;
   margin-top: 20px;
-`
+`;
 
 export const StyledH1 = styled.h1`
   font-family: 'Poiret One', cursive;
   color: white;
   margin: 20px ${gutter}px;
-`
+`;

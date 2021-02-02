@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 // import { cardWidth, gutter } from '../library'
 
 export const CardWrapper = styled.div`
@@ -30,26 +30,26 @@ export const CardWrapper = styled.div`
     );
     z-index: 1;
   }
-`
+`;
 
 export const StyledImage = styled.img`
   max-width: 100%;
   max-height: 100%;
-`
+`;
 
 export const StyledTitle = styled.p`
   margin: 0.2rem;
   font-size: 18px;
   text-align: center;
   color: white;
-`
+`;
 
 export const StyledYear = styled.p`
   color: white;
   font-size: 13px;
   text-align: center;
   margin: 0.5rem;
-`
+`;
 
 export const StyledButton = styled.button`
   background-color: transparent;
@@ -64,10 +64,10 @@ export const StyledButton = styled.button`
   @media (max-width: 750px) {
     right: -35px;
   }
-`
+`;
 export const StyledText = styled.div`
   width: 100%;
   position: absolute;
   bottom: 10px;
   z-index: 2;
-`
+`;

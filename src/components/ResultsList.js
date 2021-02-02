@@ -1,12 +1,13 @@
-import React from 'react'
-import MovieCard from './MovieCard'
+import React from 'react';
+import MovieCard from './MovieCard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import {
   StyledSection,
   StyledEmptyState,
   StyledMessage,
-} from '../styles/ResultsListStyle'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilm } from '@fortawesome/free-solid-svg-icons'
+} from '../styles/ResultsListStyle';
+
 
 const ResultsList = ({ results, handleNomination, nominatedIds, message }) => {
   return (
@@ -29,6 +30,6 @@ const ResultsList = ({ results, handleNomination, nominatedIds, message }) => {
         </StyledEmptyState>
       )}
     </StyledSection>
-  )
-}
-export default ResultsList
+  );
+};
+export default ResultsList;

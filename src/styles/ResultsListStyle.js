@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledSection = styled.section`
   display: flex;
@@ -10,7 +10,7 @@ export const StyledSection = styled.section`
   position: relative;
   justify-content: space-between;
   flex-grow: 1;
-`
+`;
 
 export const StyledEmptyState = styled.div`
   color: white;
@@ -21,7 +21,7 @@ export const StyledEmptyState = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-`
+`;
 
 export const StyledMessage = styled.p`
   color: white;
@@ -31,4 +31,4 @@ export const StyledMessage = styled.p`
   right: 0;
   margin: 0 auto;
   text-align: center;
-`
+`;

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const StyledModal = styled.div`
   position: fixed;
@@ -11,7 +11,7 @@ export const StyledModal = styled.div`
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-`
+`;
 
 export const StyledContent = styled.div`
   background-color: #fefefe;
@@ -30,11 +30,11 @@ export const StyledContent = styled.div`
     width: 80%;
     margin: 50% auto;
   }
-`
+`;
 
 export const StyledIcon = styled(FontAwesomeIcon)`
   position: absolute;
   right: 1rem;
   top: 1rem;
   cursor: pointer;
-`
+`;

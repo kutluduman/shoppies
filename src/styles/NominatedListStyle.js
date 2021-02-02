@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { gutter, MediumBlue } from '../library'
+import styled from 'styled-components';
+import { gutter, MediumBlue } from '../library';
 
 export const StyledDiv = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ export const StyledDiv = styled.div`
       height: 450px;
     }
   }
-`
+`;
 
 export const StyledH2 = styled.h2`
   font-family: 'Poiret One', cursive;
@@ -25,7 +25,7 @@ export const StyledH2 = styled.h2`
     height: 210px;
     /* margin: 5px 0; */
   }
-`
+`;
 
 export const StyledEmptySlot = styled.div`
   height: 150px;
@@ -39,4 +39,4 @@ export const StyledEmptySlot = styled.div`
   border-radius: 2px;
   font-size: 40px;
   font-family: 'Poiret One', cursive;
-`
+`;

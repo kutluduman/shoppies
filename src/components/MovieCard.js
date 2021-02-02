@@ -10,11 +10,11 @@ import {
   StyledText,
 } from '../styles/MovieCardStyle';
 
-const MovieCard = ({ movie, handleNomination, isNominated, disabled }) => {
+const MovieCard = ({ movie, handleNomination, isNominated, disabled, fullNominations }) => {
   return (
     <CardWrapper disabled={disabled}>
       {movie.Poster !== 'N/A' ? <StyledImage src={movie.Poster} /> : null}
-      <StyledButton type="button" disabled={disabled} isNominated={isNominated} onClick={() => handleNomination(movie, isNominated)}>
+      <StyledButton type="button" fullNominations={fullNominations} disabled={disabled} isNominated={isNominated} onClick={() => handleNomination(movie, isNominated)}>
         <FontAwesomeIcon icon={faAward} />
       </StyledButton>
       <StyledText>

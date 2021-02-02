@@ -9,7 +9,7 @@ import {
 } from '../styles/ResultsListStyle';
 import MovieCard from './MovieCard';
 
-const ResultsList = ({ results, handleNomination, nominatedIds, message }) => {
+const ResultsList = ({ results, handleNomination, nominatedIds, message, fullNominations }) => {
   const [showAll, setShowAll] = useState(false);
   return (
     <StyledSection showAll={showAll}>
@@ -22,6 +22,7 @@ const ResultsList = ({ results, handleNomination, nominatedIds, message }) => {
               movie={movie}
               handleNomination={handleNomination}
               disabled={nominatedIds.has(movie.imdbID)}
+              fullNominations={fullNominations}
             />
           ))}
           {!showAll ? (

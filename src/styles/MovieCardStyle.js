@@ -55,7 +55,7 @@ export const StyledButton = styled.button`
   background-color: transparent;
   border: none;
   position: absolute;
-  cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
+  cursor: ${(props) => (props.disabled || props.fullNominations ? 'default' : 'pointer')};
   top: 2%;
   right: 2%;
   font-size: 30px;

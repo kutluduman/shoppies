@@ -17,7 +17,7 @@ const Search = ({ handleResults, handleMessage }) => {
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      const searchUrl = `${omdb.HOSTNAME}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${debouncedSearchTerm}&r=json`;
+      const searchUrl = `${omdb.HOSTNAME}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${debouncedSearchTerm}&type=movie&r=json`;
 
       setSearch(true);
       axios

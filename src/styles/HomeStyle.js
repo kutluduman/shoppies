@@ -17,7 +17,7 @@ export const BorderContainer = styled.div`
   margin: 0 20px;
   display: flex;
   @media (max-width: 750px) {
-    text-align: center;
+    text-align: center
   }
 `;
 
@@ -34,7 +34,9 @@ export const Main = styled.div`
   margin-left: auto;
   width: 100%;
   z-index: 2;
-  margin-top: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const StyledH1 = styled.h1`

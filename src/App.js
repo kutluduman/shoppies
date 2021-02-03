@@ -17,12 +17,12 @@ function App() {
   const [showNotification, setShowNotification] = useState(false);
   const [message, setMessage] = useState(null);
 
-  const handleResults = useCallback((results) => setResults(results), []);
+  const handleResults = useCallback((res) => setResults(res), []);
 
-  const handleMessage = useCallback((message) => setMessage(message), []);
+  const handleMessage = useCallback((res) => setMessage(res), []);
 
-  const handleNomination = (movie, nominated) => {
-    if (nominated) {
+  const handleNomination = (movie, isNominated) => {
+    if (isNominated) {
       setNominations(
         nominations.filter((nomination) => nomination.imdbID !== movie.imdbID)
       );
@@ -31,10 +31,13 @@ function App() {
     }
   };
 
+  const closeModal = () => {
+    setShowNotification(false);
+  };
+
   useEffect(() => {
     if (nominations.length === 5) {
       setShowNotification(true);
-      setTimeout(() => setShowNotification(false), 3000);
     }
   }, [nominations]);
 
@@ -43,13 +46,12 @@ function App() {
       <BorderContainer>
         <InnerBorderContainer>
           <Main>
-            {' '}
-            {showNotification ? <Notification /> : null}{' '}
-            <StyledH1> The Shoppies </StyledH1>{' '}
+            {showNotification ? <Notification closeModal={closeModal} /> : null}
+            <StyledH1>The Shoppies</StyledH1>
             <Search
               handleResults={handleResults}
               handleMessage={handleMessage}
-            />{' '}
+            />
             <ResultsList
               handleNomination={handleNomination}
               results={results}
@@ -57,14 +59,15 @@ function App() {
                 new Set(nominations.map((nomination) => nomination.imdbID))
               }
               message={message}
-            />{' '}
+              fullNominations={nominations.length === 5}
+            />
             <NominatedList
               nominations={nominations}
               handleNomination={handleNomination}
-            />{' '}
-          </Main>{' '}
-        </InnerBorderContainer>{' '}
-      </BorderContainer>{' '}
+            />
+          </Main>
+        </InnerBorderContainer>
+      </BorderContainer>
     </AppContainer>
   );
 }

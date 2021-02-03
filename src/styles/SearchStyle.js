@@ -4,12 +4,12 @@ import { MediumGray, gutter } from '../library';
 
 export const StyledSearchWrap = styled.div`
   display: flex;
-  align-items: center;
-  position: relative;
-  margin: 0 ${gutter}px;
-  font-size: 1.5rem;
   border: 1px solid ${MediumGray};
   background-color: white;
+  align-items: center;
+  font-size: 1.5rem;
+  position: relative;
+  margin: 0 ${gutter}px;
 `;
 
 export const StyledIcon = styled(FontAwesomeIcon)`
@@ -19,11 +19,11 @@ export const StyledIcon = styled(FontAwesomeIcon)`
 `;
 
 export const StyledSearch = styled.input`
+  border: none;
   font-size: 1rem;
   font-weight: 500;
   color: ${MediumGray};
   width: 100%;
-  border: none;
   padding: 0.8rem;
   padding-left: 3rem;
 `;

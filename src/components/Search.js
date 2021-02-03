@@ -11,17 +11,17 @@ import {
 
 
 const Search = ({ handleResults, handleMessage }) => {
-  const [search, setSearch] = useState(false);
-  const [input, setInput] = useState('');
-  const debouncedSearchTerm = useDebounce(input, 500);
+  const [searching, setSearching] = useState(false);
+  const [query, setQuery] = useState('');
+  const debouncedSearchTerm = useDebounce(query, 500);
 
   useEffect(() => {
+    // if debouncedSearch term exists, user has not typed in the last 500ms
     if (debouncedSearchTerm) {
       const searchUrl = `${omdb.HOSTNAME}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${debouncedSearchTerm}&type=movie&r=json`;
 
-      setSearch(true);
-      axios
-        .get(searchUrl)
+      setSearching(true);
+      axios.get(searchUrl)
         .then((res) => {
           if (res.data.Response === 'True') {
             handleResults(res.data.Search);
@@ -29,29 +29,31 @@ const Search = ({ handleResults, handleMessage }) => {
             handleMessage(res.data.Error);
             handleResults([]);
           }
+          setSearching(false);
         })
         .catch(() => {
           handleMessage('An unexpected error occured.');
-          setSearch(false);
+          setSearching(false);
         });
     }
+    // Only call effect if debounced search term or current page changes
   }, [debouncedSearchTerm, handleResults, handleMessage]);
 
-  const handleChangeInput = (value) => {
+  const changeQuery = (value) => {
     handleMessage(null);
-    setInput(value);
+    setQuery(value);
   };
 
   return (
     <section>
       <StyledSearchWrap>
-        <StyledIcon icon={search ? faSpinner : faSearch} spin={search} />
+        <StyledIcon icon={searching ? faSpinner : faSearch} spin={searching} />
         <StyledSearch
           type="text"
-          name="input"
+          name="query"
           placeholder="Search"
-          value={input}
-          onChange={(e) => handleChangeInput(e.target.value)}
+          value={query}
+          onChange={(e) => changeQuery(e.target.value)}
         />
       </StyledSearchWrap>
     </section>

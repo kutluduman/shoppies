@@ -2,14 +2,13 @@ import styled from 'styled-components';
  import { gutter } from '../library'
 
 export const CardWrapper = styled.div`
-  position: relative;
+   position: relative;
   width: 100px;
   height: 150px;
   margin: 5px ${gutter}px;
   border-radius: 2px;
-  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
-    0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
-    opacity: ${(props) => (props.disabled ? '0.5' : '1')};
+  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+  opacity: ${(props) => (props.disabled ? '0.5' : '1')};
   @media (max-width: 750px) {
     width: calc((100vw - 100px) / 2 - 5px);
     height: calc(((100vw - 100px) / 2 - 5px) * 1.5);
@@ -18,15 +17,11 @@ export const CardWrapper = styled.div`
   :before {
     content: '';
     position: absolute;
-    top: 0;
+    top:0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
     z-index: 1;
   }
 `;
@@ -45,10 +40,10 @@ export const StyledTitle = styled.p`
 `;
 
 export const StyledYear = styled.p`
-  color: white;
+  margin: 0.5rem;
   font-size: 13px;
   text-align: center;
-  margin: 0.5rem;
+  color: white;
 `;
 
 export const StyledButton = styled.button`
@@ -59,6 +54,7 @@ export const StyledButton = styled.button`
   top: 2%;
   right: 2%;
   font-size: 30px;
+  z-index: 3;
   color: ${(props) => (props.isNominated ? '#ffd43b' : 'white')};
   padding: 0;
   filter: drop-shadow(16px 16px 10px black);

@@ -20,10 +20,6 @@ export const StyledH2 = styled.h2`
   font-family: 'Poiret One', cursive;
   color: white;
   margin: 20px ${gutter}px;
-  @media (max-width: 750px) {
-    width: calc((100vw - 100px) / 2 - 5px);
-    height: calc(((100vw - 100px) / 2 - 5px) * 1.5);
-  }
 `;
 
 export const StyledEmptySlot = styled.div`
@@ -39,8 +35,8 @@ export const StyledEmptySlot = styled.div`
   font-size: 40px;
   font-family: 'Poiret One', cursive;
   @media (max-width: 750px) {
-    width: 140px;
-    height: 210px;
+    width: calc((100vw - 100px) / 2 - 5px);
+    height: calc(((100vw - 100px) / 2 - 5px) * 1.5);
     margin: 5px 0;
   }
 `;

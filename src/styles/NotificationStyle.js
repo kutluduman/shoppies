@@ -9,8 +9,8 @@ export const StyledModal = styled.div`
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
 `;
 
 export const StyledContent = styled.div`

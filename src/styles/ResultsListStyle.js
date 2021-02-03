@@ -47,7 +47,7 @@ export const StyledButton = styled.button`
     border: none;
     position: absolute;
     width: 120px;
-    bottom: 5px;
+    bottom: 10px;
     color: white;
     background: #8e6210;
     border-radius: 2px;

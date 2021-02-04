@@ -1,3 +1,3 @@
 # The Shoppies
 
-- Deployed here ---> 
+- Deployed here ---> https://theshoppies1.netlify.app/
